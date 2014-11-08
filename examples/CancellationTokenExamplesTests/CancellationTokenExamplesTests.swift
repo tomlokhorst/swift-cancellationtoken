@@ -30,7 +30,44 @@ class CancellationTokenExamplesTests: XCTestCase {
             expectation.fulfill()
           }
         }
+    }
+
+    // Request cancellation of the token after 0.1 second
+    source.cancel(0.1)
+
+    // Wait for 1 second for the download to be cancelled
+    waitForExpectationsWithTimeout(1.0, handler: nil)
+  }
+
+  func testTinyNetworking() {
+    let expectation = expectationWithDescription("Request not cancelled")
+
+    let source = CancellationTokenSource()
+    let token = source.token
+
+
+    let baseURL = NSURL(string: "https://upload.wikimedia.org")!
+    let largeFileResource = Resource(
+      path: "/wikipedia/commons/5/5f/HubbleDeepField.800px.jpg",
+      method: .GET,
+      requestBody: nil,
+      headers: [:],
+      parse: { data in data })
+
+
+    // Start the asynchroneous downloading of a large file, passing in the cancellation token
+    tinyApiRequest({ _ in }, baseURL, largeFileResource, token, { reason, _ in
+      switch reason {
+      case let .Other(error):
+        if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
+          expectation.fulfill()
+        }
+      default:
+        break
       }
+    }, { result in
+      println("result!")
+    })
 
     // Request cancellation of the token after 0.1 second
     source.cancel(0.1)

@@ -12,6 +12,8 @@
 		E2D0FAF61A0E132E008F58FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D0FAEF1A0E1258008F58FC /* Alamofire.framework */; };
 		E2D0FAF81A0E2CAF008F58FC /* Alamofire+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0FAF71A0E2CAF008F58FC /* Alamofire+Cancellation.swift */; };
 		E2D0FB041A0E3999008F58FC /* CancellationToken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D0FB011A0E3991008F58FC /* CancellationToken.framework */; };
+		E2D0FB071A0E68A1008F58FC /* tiny-networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0FB061A0E68A1008F58FC /* tiny-networking.swift */; };
+		E2D0FB0D1A0E7054008F58FC /* TinyNetworking+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0FB0C1A0E7054008F58FC /* TinyNetworking+Cancellation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		E2D0FAE91A0E1258008F58FC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		E2D0FAF71A0E2CAF008F58FC /* Alamofire+Cancellation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+Cancellation.swift"; sourceTree = "<group>"; };
 		E2D0FAFB1A0E3991008F58FC /* CancellationToken.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CancellationToken.xcodeproj; path = ../src/CancellationToken.xcodeproj; sourceTree = "<group>"; };
+		E2D0FB061A0E68A1008F58FC /* tiny-networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "tiny-networking.swift"; sourceTree = "<group>"; };
+		E2D0FB0C1A0E7054008F58FC /* TinyNetworking+Cancellation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyNetworking+Cancellation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +111,10 @@
 		E2D0FACF1A0E1127008F58FC /* CancellationTokenExamples */ = {
 			isa = PBXGroup;
 			children = (
+				E2D0FB051A0E687D008F58FC /* External */,
 				E2D0FAD01A0E1127008F58FC /* Supporting Files */,
 				E2D0FAF71A0E2CAF008F58FC /* Alamofire+Cancellation.swift */,
+				E2D0FB0C1A0E7054008F58FC /* TinyNetworking+Cancellation.swift */,
 			);
 			path = CancellationTokenExamples;
 			sourceTree = "<group>";
@@ -154,6 +160,14 @@
 				E2D0FB031A0E3991008F58FC /* CancellationTokenTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E2D0FB051A0E687D008F58FC /* External */ = {
+			isa = PBXGroup;
+			children = (
+				E2D0FB061A0E68A1008F58FC /* tiny-networking.swift */,
+			);
+			path = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +317,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2D0FB0D1A0E7054008F58FC /* TinyNetworking+Cancellation.swift in Sources */,
 				E2D0FAF81A0E2CAF008F58FC /* Alamofire+Cancellation.swift in Sources */,
+				E2D0FB071A0E68A1008F58FC /* tiny-networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
