@@ -79,7 +79,7 @@ public class CancellationTokenSource {
     }
   }
 
-  public func cancel(seconds: Double) {
+  public func cancel(seconds: NSTimeInterval) {
     cancel(dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC))))
   }
 }
