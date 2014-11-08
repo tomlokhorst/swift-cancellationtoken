@@ -9,6 +9,11 @@
 import Foundation
 
 /**
+An empty token that will never be cancelled
+*/
+public let EmptyToken = CancellationTokenSource().token
+
+/**
 A `CancellationToken` indicates if cancellation of "something" was requested.
 Can be passed around and checked by whatever wants to be cancellable.
 
