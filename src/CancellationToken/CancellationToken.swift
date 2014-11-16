@@ -18,7 +18,7 @@ A already cancelled token
 */
 public let CancelledToken = CancellationTokenSource(cancelled: true).token
 
-public enum State {
+enum State {
   case Cancelled
   case NotCancelled
   case Pending(CancellationTokenSource)
@@ -32,7 +32,7 @@ To create a cancellation token, use `CancellationTokenSource`.
 */
 public struct CancellationToken {
 
-  public var state: State
+  private var state: State
 
   public var isCancellationRequested: Bool {
     switch state {
@@ -44,6 +44,7 @@ public struct CancellationToken {
       return source.isCancellationRequested
     }
   }
+
   internal init(state: State) {
     self.state = state
   }
