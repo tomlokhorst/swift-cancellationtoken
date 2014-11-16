@@ -14,6 +14,7 @@
 		E2D0FB041A0E3999008F58FC /* CancellationToken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D0FB011A0E3991008F58FC /* CancellationToken.framework */; };
 		E2D0FB071A0E68A1008F58FC /* tiny-networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0FB061A0E68A1008F58FC /* tiny-networking.swift */; };
 		E2D0FB0D1A0E7054008F58FC /* TinyNetworking+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0FB0C1A0E7054008F58FC /* TinyNetworking+Cancellation.swift */; };
+		E2E229721A0E94090078D1C8 /* Fibonacci+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E229711A0E94090078D1C8 /* Fibonacci+Cancellation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E2D0FAFB1A0E3991008F58FC /* CancellationToken.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CancellationToken.xcodeproj; path = ../src/CancellationToken.xcodeproj; sourceTree = "<group>"; };
 		E2D0FB061A0E68A1008F58FC /* tiny-networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "tiny-networking.swift"; sourceTree = "<group>"; };
 		E2D0FB0C1A0E7054008F58FC /* TinyNetworking+Cancellation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyNetworking+Cancellation.swift"; sourceTree = "<group>"; };
+		E2E229711A0E94090078D1C8 /* Fibonacci+Cancellation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fibonacci+Cancellation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				E2D0FB051A0E687D008F58FC /* External */,
 				E2D0FAD01A0E1127008F58FC /* Supporting Files */,
 				E2D0FAF71A0E2CAF008F58FC /* Alamofire+Cancellation.swift */,
+				E2E229711A0E94090078D1C8 /* Fibonacci+Cancellation.swift */,
 				E2D0FB0C1A0E7054008F58FC /* TinyNetworking+Cancellation.swift */,
 			);
 			path = CancellationTokenExamples;
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D0FB0D1A0E7054008F58FC /* TinyNetworking+Cancellation.swift in Sources */,
+				E2E229721A0E94090078D1C8 /* Fibonacci+Cancellation.swift in Sources */,
 				E2D0FAF81A0E2CAF008F58FC /* Alamofire+Cancellation.swift in Sources */,
 				E2D0FB071A0E68A1008F58FC /* tiny-networking.swift in Sources */,
 			);

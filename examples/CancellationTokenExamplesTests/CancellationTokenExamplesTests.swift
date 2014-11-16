@@ -76,6 +76,18 @@ class CancellationTokenExamplesTests: XCTestCase {
     waitForExpectationsWithTimeout(1.0, handler: nil)
   }
 
+  func testFibonacci() {
+    let source = CancellationTokenSource()
+    let token = source.token
+
+    // Request cancellation of the token after 0.5 second
+    source.cancel(0.5)
+
+    // Start calculation of the 36th fibonacci number on main queue
+    let result = fib(36, token)
+
+    XCTAssertNotEqual(result, 14930352, "Fibonacci calculation was not cancelled")
+  }
 }
 
 func delay(seconds: NSTimeInterval, block: dispatch_block_t!) {
