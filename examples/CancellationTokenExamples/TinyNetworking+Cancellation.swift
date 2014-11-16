@@ -12,8 +12,9 @@ import CancellationToken
 public func tinyApiRequest<A>(modifyRequest: NSMutableURLRequest -> (), baseURL: NSURL, resource: Resource<A>, cancellationToken: CancellationToken, failure: (Reason, NSData?) -> (), completion: A -> ()) -> NSURLSessionTask {
   let task = apiRequest(modifyRequest, baseURL, resource, failure, completion)
 
-  cancellationToken.register {
-    task.cancel()
+  cancellationToken.register { [weak task] in
+    task?.cancel()
+    return
   }
 
   return task
