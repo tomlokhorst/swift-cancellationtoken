@@ -65,7 +65,7 @@ A `CancellationTokenSource` is used to create a `CancellationToken`.
 The created token can be set to "cancellation requested" using the `cancel()` method.
 */
 public class CancellationTokenSource {
-  public let token: CancellationToken!
+  public private(set) var token: CancellationToken!
 
   private var handlers: [Void -> Void] = []
   internal var isCancellationRequested = false
