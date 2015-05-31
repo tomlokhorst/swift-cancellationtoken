@@ -1,3 +1,0 @@
-[submodule "examples/Alamofire"]
-	path = examples/Alamofire
-	url = https://github.com/Alamofire/Alamofire.git
