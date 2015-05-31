@@ -14,6 +14,16 @@ Pod::Spec.new do |s|
 
   s.source          = { :git => "https://github.com/tomlokhorst/swift-cancellationtoken.git", :tag => s.version }
   s.requires_arc    = true
-  s.source_files    = "src/CancellationToken"
+  s.default_subspec = "Core"
+
+  s.subspec "Core" do |ss|
+    ss.source_files  = "src/CancellationToken"
+  end
+
+  s.subspec "Alamofire" do |ss|
+    ss.source_files = "extensions/CancellationTokenExtensions/Alamofire+Cancellation.swift"
+    ss.dependency "CancellationToken/Core"
+    ss.dependency "Alamofire", "~> 1.2"
+  end
 
 end
