@@ -1,0 +1,17 @@
+PODS:
+  - Alamofire (1.2.2)
+  - CancellationToken (0.1.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - CancellationToken (from `../`)
+
+EXTERNAL SOURCES:
+  CancellationToken:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
+  CancellationToken: 813b42b741d41c94b1ccfbb5bec0d33fdbbfa03b
+
+COCOAPODS: 0.37.2
