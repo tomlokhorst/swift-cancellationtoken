@@ -11,12 +11,12 @@ import Foundation
 /**
 A token that will never be cancelled
 */
-public let NotCancellableToken = CancellationTokenSource(cancelled: false).token
+public let NotCancellableToken = CancellationToken(state: .NotCancelled)
 
 /**
 A already cancelled token
 */
-public let CancelledToken = CancellationTokenSource(cancelled: true).token
+public let CancelledToken = CancellationToken(state: .Cancelled)
 
 enum State {
   case Cancelled
@@ -65,18 +65,19 @@ A `CancellationTokenSource` is used to create a `CancellationToken`.
 The created token can be set to "cancellation requested" using the `cancel()` method.
 */
 public class CancellationTokenSource {
-  public private(set) var token: CancellationToken!
+  public var token: CancellationToken {
+    if isCancellationRequested {
+      return CancellationToken(state: .Cancelled)
+    }
+    else {
+      return CancellationToken(state: .Pending(self))
+    }
+  }
 
   private var handlers: [Void -> Void] = []
   internal var isCancellationRequested = false
 
-  internal init(cancelled: Bool) {
-    isCancellationRequested = cancelled
-    token = CancellationToken(state: cancelled ? .Cancelled : .NotCancelled)
-  }
-
   public init() {
-    token = CancellationToken(state: .Pending(self))
   }
 
   public func register(handler: Void -> Void) {
