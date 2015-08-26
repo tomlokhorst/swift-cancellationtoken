@@ -22,7 +22,7 @@ class CancellationTokenExamplesTests: XCTestCase {
 
 
     // Start the asynchroneous downloading of a large file, passing in the cancellation token
-    request(.GET, largeFileUrl, cancellationToken: token)
+    request(.GET, URLString: largeFileUrl, cancellationToken: token)
       .response { (request, response, data, error) in
         if let error = error {
           if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
@@ -55,7 +55,7 @@ class CancellationTokenExamplesTests: XCTestCase {
 
 
     // Start the asynchroneous downloading of a large file, passing in the cancellation token
-    tinyApiRequest({ _ in }, baseURL, largeFileResource, token, { reason, _ in
+    tinyApiRequest({ _ in }, baseURL: baseURL, resource: largeFileResource, cancellationToken: token, failure: { reason, _ in
       switch reason {
       case let .Other(error):
         if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
@@ -64,8 +64,8 @@ class CancellationTokenExamplesTests: XCTestCase {
       default:
         break
       }
-    }, { result in
-      println("result!")
+    }, completion: { result in
+      print("result!")
     })
 
     // Request cancellation of the token after 0.1 second

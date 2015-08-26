@@ -57,7 +57,7 @@ public func apiRequest<A>(modifyRequest: NSMutableURLRequest -> (), baseURL: NSU
     request.setValue(value, forHTTPHeaderField: key)
   }
   let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-    if error != nil {
+    if let error = error {
       failure(Reason.Other(error), data)
       return
     }
@@ -76,7 +76,7 @@ public func apiRequest<A>(modifyRequest: NSMutableURLRequest -> (), baseURL: NSU
         failure(Reason.NoSuccessStatusCode(statusCode: httpResponse.statusCode), data)
       }
     } else {
-      failure(Reason.Other(error), data)
+      failure(Reason.NoData, data)
     }
   }
   task.resume()
