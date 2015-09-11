@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Tom Lokhorst. All rights reserved.
 //
 
-import CancellationToken
 import Alamofire
 
 extension Manager {

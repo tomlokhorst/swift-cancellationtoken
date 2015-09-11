@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		980BB4DBCF9F6E38BED88067 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD7B27814C8C253EA29DA4D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E232229D1BA2EB2B00446670 /* CancellationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232229C1BA2EB2B00446670 /* CancellationToken.swift */; settings = {ASSET_TAGS = (); }; };
 		E2C47D9B1B1B58FE000B4B5B /* CancellationTokenExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47D9A1B1B58FE000B4B5B /* CancellationTokenExtensionsTests.swift */; };
 		E2C47DA91B1B5A60000B4B5B /* Alamofire+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47DA41B1B5A60000B4B5B /* Alamofire+Cancellation.swift */; };
 		E2C47DAA1B1B5A60000B4B5B /* tiny-networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47DA61B1B5A60000B4B5B /* tiny-networking.swift */; };
@@ -30,6 +31,7 @@
 		26531CD6E030F768889E8A6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D822A8A80E55E14EF1D7C536 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DBD7B27814C8C253EA29DA4D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E232229C1BA2EB2B00446670 /* CancellationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CancellationToken.swift; path = ../src/CancellationToken/CancellationToken.swift; sourceTree = "<group>"; };
 		E2C47D881B1B58FE000B4B5B /* CancellationTokenExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CancellationTokenExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C47D8C1B1B58FE000B4B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2C47D931B1B58FE000B4B5B /* CancellationTokenExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CancellationTokenExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,9 +82,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E232229E1BA2EB7300446670 /* CancellationToken */ = {
+			isa = PBXGroup;
+			children = (
+				E232229C1BA2EB2B00446670 /* CancellationToken.swift */,
+			);
+			name = CancellationToken;
+			sourceTree = "<group>";
+		};
 		E2C47D7E1B1B58FE000B4B5B = {
 			isa = PBXGroup;
 			children = (
+				E232229E1BA2EB7300446670 /* CancellationToken */,
 				E2C47D8A1B1B58FE000B4B5B /* CancellationTokenExtensions */,
 				E2C47D971B1B58FE000B4B5B /* CancellationTokenExtensionsTests */,
 				E2C47D891B1B58FE000B4B5B /* Products */,
@@ -289,6 +300,7 @@
 				E2C47DAC1B1B5A60000B4B5B /* TinyNetworking+Cancellation.swift in Sources */,
 				E2C47DAB1B1B5A60000B4B5B /* Fibonacci+Cancellation.swift in Sources */,
 				E2C47DA91B1B5A60000B4B5B /* Alamofire+Cancellation.swift in Sources */,
+				E232229D1BA2EB2B00446670 /* CancellationToken.swift in Sources */,
 				E2C47DAA1B1B5A60000B4B5B /* tiny-networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CancellationToken
 
 public func tinyApiRequest<A>(modifyRequest: NSMutableURLRequest -> (), baseURL: NSURL, resource: Resource<A>, cancellationToken: CancellationToken, failure: (Reason, NSData?) -> (), completion: A -> ()) -> NSURLSessionTask {
   let task = apiRequest(modifyRequest, baseURL: baseURL, resource: resource, failure: failure, completion: completion)

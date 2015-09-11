@@ -1,27 +1,10 @@
 PODS:
-  - Alamofire (2.0.0-beta.3)
-  - CancellationToken (0.1.1):
-    - CancellationToken/Core (= 0.1.1)
-  - CancellationToken/Core (0.1.1)
+  - Alamofire (2.0.0)
 
 DEPENDENCIES:
-  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift-2.0`)
-  - CancellationToken (from `../`)
-
-EXTERNAL SOURCES:
-  Alamofire:
-    :branch: swift-2.0
-    :git: https://github.com/Alamofire/Alamofire.git
-  CancellationToken:
-    :path: ../
-
-CHECKOUT OPTIONS:
-  Alamofire:
-    :commit: 0fd77fec2a33e237ab99069c36410eb7101126c6
-    :git: https://github.com/Alamofire/Alamofire.git
+  - Alamofire (~> 2.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 39dddb7d3725d1771b1d2f7099c8bd45bd83ffbb
-  CancellationToken: d244bca726ac37bf82c702e717d82d57d6de5042
+  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
 
 COCOAPODS: 0.38.2

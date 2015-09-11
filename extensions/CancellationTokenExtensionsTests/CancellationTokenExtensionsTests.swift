@@ -8,7 +8,6 @@
 
 import XCTest
 import Alamofire
-import CancellationToken
 import CancellationTokenExtensions
 
 class CancellationTokenExamplesTests: XCTestCase {
@@ -24,7 +23,7 @@ class CancellationTokenExamplesTests: XCTestCase {
     // Start the asynchroneous downloading of a large file, passing in the cancellation token
     request(.GET, URLString: largeFileUrl, cancellationToken: token)
       .response { (request, response, data, error) in
-        if let error = error {
+        if let error = error as? NSError {
           if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
             expectation.fulfill()
           }

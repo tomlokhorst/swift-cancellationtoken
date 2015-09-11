@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CancellationToken"
-  s.version      = "0.1.1"
+  s.version      = "0.2.0"
   s.license      = "MIT"
 
   s.summary      = "CancellationToken in Swift"
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.subspec "Alamofire" do |ss|
     ss.source_files = "extensions/CancellationTokenExtensions/Alamofire+Cancellation.swift"
     ss.dependency "CancellationToken/Core"
-    ss.dependency "Alamofire", "~> 1.2"
+    ss.dependency "Alamofire", "~> 2.0"
   end
 
 end

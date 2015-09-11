@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CancellationToken
 
 // A terribly inefficient way of calculating a fibonacci number
 public func fib(n: Int, _ cancellationToken: CancellationToken) -> Int {

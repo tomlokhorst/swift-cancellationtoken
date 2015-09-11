@@ -29,13 +29,13 @@ let token = source.token
 // Start the asynchroneous downloading of a large file, passing in the cancellation token
 alamofireRequest(.GET, largeFileUrl, cancellationToken: token)
   .response { (request, response, data, error) in
-    if let error = error {
+    if let error = error as? NSError {
       if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
-        println("The downloading was cancelled")
+        print("The downloading was cancelled")
       }
     }
     else {
-      println("The response is available: \(response)")
+      print("The response is available: \(response)")
     }
 }
 
@@ -43,13 +43,43 @@ alamofireRequest(.GET, largeFileUrl, cancellationToken: token)
 source.cancel()
 ```
 
+
 Installation
 ------------
 
-Due to the lack of Swift suport in tools like [CocoaPods](http://cocoapods.org/), installation of this library is a bit involved. There are two options:
+### CocoaPods
 
-1. Clone this repository as a submodule, and manually link this project as a subproject (same as the [installation instructions for Alamofire](https://github.com/Alamofire/Alamofire#installation))
-2. Or, just copy [`CancellationToken.swift`](https://github.com/tomlokhorst/swift-cancellationtoken/blob/master/src/CancellationToken/CancellationToken.swift) into your project
+CancellationToken is available for both iOS and OS X. Using [CocoaPods](http://cocoapods.org), CancellationToken can be integrated into your Xcode project by specifying it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'CancellationToken', '~> 0.2.0'
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+
+### Manual
+
+CancellationToken is just a single file, so instead of using CocoaPods, you could also just copy it into your project:
+
+ - [CancellationToken.swift](https://github.com/tomlokhorst/swift-cancellationtoken/blob/develop/src/CancellationToken/CancellationToken.swift)
+
+
+Releases
+--------
+
+ - **0.2.0** - 2015-09-11 - Swift 2 support
+ - 0.1.1 - 2015-06-24 - No more circular references, fixes memory leak
+ - **0.1.0** - 2015-03-31 - Initial public release
+ - 0.0.0 - 2014-10-31 - Initial private version for project at [Q42](http://q42.com)
 
 
 Licence & Credits
