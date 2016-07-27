@@ -11,17 +11,17 @@ import Foundation
 /**
 A token that will never be cancelled
 */
-public let NotCancellableToken = CancellationToken(state: .NotCancelled)
+public let NotCancellableToken = CancellationToken(state: .notCancelled)
 
 /**
 A already cancelled token
 */
-public let CancelledToken = CancellationToken(state: .Cancelled)
+public let CancelledToken = CancellationToken(state: .cancelled)
 
 enum State {
-  case Cancelled
-  case NotCancelled
-  case Pending(CancellationTokenSource)
+  case cancelled
+  case notCancelled
+  case pending(CancellationTokenSource)
 }
 
 /**
@@ -36,11 +36,13 @@ public struct CancellationToken {
 
   public var isCancellationRequested: Bool {
     switch state {
-    case .Cancelled:
+    case .cancelled:
       return true
-    case .NotCancelled:
+
+    case .notCancelled:
       return false
-    case let .Pending(source):
+
+    case let .pending(source):
       return source.isCancellationRequested
     }
   }
@@ -49,10 +51,10 @@ public struct CancellationToken {
     self.state = state
   }
 
-  public func register(handler: Void -> Void) {
+  public func register(_ handler: (Void) -> Void) {
 
     switch state {
-    case let .Pending(source):
+    case let .pending(source):
       source.register(handler)
     default:
       handler()
@@ -67,20 +69,20 @@ The created token can be set to "cancellation requested" using the `cancel()` me
 public class CancellationTokenSource {
   public var token: CancellationToken {
     if isCancellationRequested {
-      return CancellationToken(state: .Cancelled)
+      return CancellationToken(state: .cancelled)
     }
     else {
-      return CancellationToken(state: .Pending(self))
+      return CancellationToken(state: .pending(self))
     }
   }
 
-  private var handlers: [Void -> Void] = []
+  private var handlers: [(Void) -> Void] = []
   internal var isCancellationRequested = false
 
   public init() {
   }
 
-  public func register(handler: Void -> Void) {
+  public func register(_ handler: (Void) -> Void) {
     if isCancellationRequested {
       handler()
     }
@@ -93,21 +95,21 @@ public class CancellationTokenSource {
     tryCancel()
   }
 
-  public func cancel(when: dispatch_time_t) {
+  public func cancel(when: DispatchTime) {
     // On a background queue
-    let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+    let queue = DispatchQueue.global(attributes: .qosUserInitiated)
 
-    dispatch_after(when, queue) { [weak self] in
+    queue.after(when: when) { [weak self] in
       self?.tryCancel()
       return
     }
   }
 
-  public func cancel(seconds: NSTimeInterval) {
-    cancel(dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC))))
+  public func cancel(seconds: TimeInterval) {
+    cancel(when: .now() + seconds)
   }
 
-  internal func tryCancel() -> Bool {
+  @discardableResult internal func tryCancel() -> Bool {
     if !isCancellationRequested {
       isCancellationRequested = true
       executeHandlers()
