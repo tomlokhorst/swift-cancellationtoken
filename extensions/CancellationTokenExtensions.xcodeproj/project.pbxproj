@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		980BB4DBCF9F6E38BED88067 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD7B27814C8C253EA29DA4D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E232229D1BA2EB2B00446670 /* CancellationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232229C1BA2EB2B00446670 /* CancellationToken.swift */; settings = {ASSET_TAGS = (); }; };
+		08BA5356DCCA2B68621DE180 /* Pods_CancellationTokenExtensionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFA28BDB580EF3BFAA2154D /* Pods_CancellationTokenExtensionsTests.framework */; };
+		C18288DA179B1FA5126FFE15 /* Pods_CancellationTokenExtensionPods_CancellationTokenExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EB264AC062579A067C28E7 /* Pods_CancellationTokenExtensionPods_CancellationTokenExtensions.framework */; };
+		E232229D1BA2EB2B00446670 /* CancellationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232229C1BA2EB2B00446670 /* CancellationToken.swift */; };
+		E25251F11D496ABA00AC99B8 /* Alamofire+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47DA41B1B5A60000B4B5B /* Alamofire+Cancellation.swift */; };
 		E2C47D9B1B1B58FE000B4B5B /* CancellationTokenExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47D9A1B1B58FE000B4B5B /* CancellationTokenExtensionsTests.swift */; };
-		E2C47DA91B1B5A60000B4B5B /* Alamofire+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47DA41B1B5A60000B4B5B /* Alamofire+Cancellation.swift */; };
-		E2C47DAA1B1B5A60000B4B5B /* tiny-networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47DA61B1B5A60000B4B5B /* tiny-networking.swift */; };
 		E2C47DAB1B1B5A60000B4B5B /* Fibonacci+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47DA71B1B5A60000B4B5B /* Fibonacci+Cancellation.swift */; };
-		E2C47DAC1B1B5A60000B4B5B /* TinyNetworking+Cancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C47DA81B1B5A60000B4B5B /* TinyNetworking+Cancellation.swift */; };
 		E2DEA14D1B1B7D260040EDBD /* CancellationTokenExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C47D881B1B58FE000B4B5B /* CancellationTokenExtensions.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +27,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		26531CD6E030F768889E8A6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D822A8A80E55E14EF1D7C536 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		0CFA28BDB580EF3BFAA2154D /* Pods_CancellationTokenExtensionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CancellationTokenExtensionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		560E1C8B3E5E6FCB507F695A /* Pods_CancellationTokenExtensionPods_CancellationTokenExtensionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CancellationTokenExtensionPods_CancellationTokenExtensionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C2F07465346B595189C57EA /* Pods-CancellationTokenExtensionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CancellationTokenExtensionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CancellationTokenExtensionsTests/Pods-CancellationTokenExtensionsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		787BE353EA96489CF56573CB /* Pods-CancellationTokenExtensionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CancellationTokenExtensionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CancellationTokenExtensionsTests/Pods-CancellationTokenExtensionsTests.release.xcconfig"; sourceTree = "<group>"; };
+		9378B98BC348FFC877D93FB7 /* Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CancellationTokenExtensionPods-CancellationTokenExtensions/Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.debug.xcconfig"; sourceTree = "<group>"; };
+		94036B7CEB500885108EA055 /* Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.release.xcconfig"; path = "Pods/Target Support Files/Pods-CancellationTokenExtensionPods-CancellationTokenExtensions/Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.release.xcconfig"; sourceTree = "<group>"; };
 		DBD7B27814C8C253EA29DA4D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E232229C1BA2EB2B00446670 /* CancellationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CancellationToken.swift; path = ../src/CancellationToken/CancellationToken.swift; sourceTree = "<group>"; };
 		E2C47D881B1B58FE000B4B5B /* CancellationTokenExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CancellationTokenExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,10 +41,9 @@
 		E2C47D991B1B58FE000B4B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2C47D9A1B1B58FE000B4B5B /* CancellationTokenExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationTokenExtensionsTests.swift; sourceTree = "<group>"; };
 		E2C47DA41B1B5A60000B4B5B /* Alamofire+Cancellation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+Cancellation.swift"; sourceTree = "<group>"; };
-		E2C47DA61B1B5A60000B4B5B /* tiny-networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "tiny-networking.swift"; sourceTree = "<group>"; };
 		E2C47DA71B1B5A60000B4B5B /* Fibonacci+Cancellation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fibonacci+Cancellation.swift"; sourceTree = "<group>"; };
-		E2C47DA81B1B5A60000B4B5B /* TinyNetworking+Cancellation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyNetworking+Cancellation.swift"; sourceTree = "<group>"; };
 		E2DEA14E1B1B7D3D0040EDBD /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
+		E6EB264AC062579A067C28E7 /* Pods_CancellationTokenExtensionPods_CancellationTokenExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CancellationTokenExtensionPods_CancellationTokenExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				980BB4DBCF9F6E38BED88067 /* Pods.framework in Frameworks */,
+				C18288DA179B1FA5126FFE15 /* Pods_CancellationTokenExtensionPods_CancellationTokenExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2DEA14D1B1B7D260040EDBD /* CancellationTokenExtensions.framework in Frameworks */,
+				08BA5356DCCA2B68621DE180 /* Pods_CancellationTokenExtensionsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,15 +72,20 @@
 			children = (
 				E2DEA14E1B1B7D3D0040EDBD /* Pods.framework */,
 				DBD7B27814C8C253EA29DA4D /* Pods.framework */,
+				0CFA28BDB580EF3BFAA2154D /* Pods_CancellationTokenExtensionsTests.framework */,
+				560E1C8B3E5E6FCB507F695A /* Pods_CancellationTokenExtensionPods_CancellationTokenExtensionsTests.framework */,
+				E6EB264AC062579A067C28E7 /* Pods_CancellationTokenExtensionPods_CancellationTokenExtensions.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7A67FB53B293A4F84B4D28AB /* Pods */ = {
+		28E1032A190234AB2AF1F052 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D822A8A80E55E14EF1D7C536 /* Pods.debug.xcconfig */,
-				26531CD6E030F768889E8A6B /* Pods.release.xcconfig */,
+				6C2F07465346B595189C57EA /* Pods-CancellationTokenExtensionsTests.debug.xcconfig */,
+				787BE353EA96489CF56573CB /* Pods-CancellationTokenExtensionsTests.release.xcconfig */,
+				9378B98BC348FFC877D93FB7 /* Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.debug.xcconfig */,
+				94036B7CEB500885108EA055 /* Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -97,8 +105,8 @@
 				E2C47D8A1B1B58FE000B4B5B /* CancellationTokenExtensions */,
 				E2C47D971B1B58FE000B4B5B /* CancellationTokenExtensionsTests */,
 				E2C47D891B1B58FE000B4B5B /* Products */,
-				7A67FB53B293A4F84B4D28AB /* Pods */,
 				04F63526057470B9C33FB2F7 /* Frameworks */,
+				28E1032A190234AB2AF1F052 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,9 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C47DA41B1B5A60000B4B5B /* Alamofire+Cancellation.swift */,
-				E2C47DA51B1B5A60000B4B5B /* External */,
 				E2C47DA71B1B5A60000B4B5B /* Fibonacci+Cancellation.swift */,
-				E2C47DA81B1B5A60000B4B5B /* TinyNetworking+Cancellation.swift */,
 				E2C47D8B1B1B58FE000B4B5B /* Supporting Files */,
 			);
 			path = CancellationTokenExtensions;
@@ -148,14 +154,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E2C47DA51B1B5A60000B4B5B /* External */ = {
-			isa = PBXGroup;
-			children = (
-				E2C47DA61B1B5A60000B4B5B /* tiny-networking.swift */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -173,12 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2C47D9E1B1B58FE000B4B5B /* Build configuration list for PBXNativeTarget "CancellationTokenExtensions" */;
 			buildPhases = (
-				E4343BC60592F37AA4292005 /* Check Pods Manifest.lock */,
+				3598F003FB21C1EC1B5F3ECD /* [CP] Check Pods Manifest.lock */,
 				E2C47D831B1B58FE000B4B5B /* Sources */,
 				E2C47D841B1B58FE000B4B5B /* Frameworks */,
 				E2C47D851B1B58FE000B4B5B /* Headers */,
 				E2C47D861B1B58FE000B4B5B /* Resources */,
-				C648EC1FF4FBBB5A2369FAED /* Copy Pods Resources */,
+				9E741E01D69118265071C707 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2C47DA11B1B58FE000B4B5B /* Build configuration list for PBXNativeTarget "CancellationTokenExtensionsTests" */;
 			buildPhases = (
+				74B1818C71529E8ABC9B0794 /* [CP] Check Pods Manifest.lock */,
 				E2C47D8F1B1B58FE000B4B5B /* Sources */,
 				E2C47D901B1B58FE000B4B5B /* Frameworks */,
 				E2C47D911B1B58FE000B4B5B /* Resources */,
+				78233114D6134778623147CF /* [CP] Embed Pods Frameworks */,
+				03E9967784A0C25EB16033BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,14 +214,16 @@
 		E2C47D7F1B1B58FE000B4B5B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = nonstrict;
 				TargetAttributes = {
 					E2C47D871B1B58FE000B4B5B = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 					};
 					E2C47D921B1B58FE000B4B5B = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -260,34 +263,79 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C648EC1FF4FBBB5A2369FAED /* Copy Pods Resources */ = {
+		03E9967784A0C25EB16033BB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CancellationTokenExtensionsTests/Pods-CancellationTokenExtensionsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E4343BC60592F37AA4292005 /* Check Pods Manifest.lock */ = {
+		3598F003FB21C1EC1B5F3ECD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		74B1818C71529E8ABC9B0794 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		78233114D6134778623147CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CancellationTokenExtensionsTests/Pods-CancellationTokenExtensionsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E741E01D69118265071C707 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CancellationTokenExtensionPods-CancellationTokenExtensions/Pods-CancellationTokenExtensionPods-CancellationTokenExtensions-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -297,11 +345,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C47DAC1B1B5A60000B4B5B /* TinyNetworking+Cancellation.swift in Sources */,
 				E2C47DAB1B1B5A60000B4B5B /* Fibonacci+Cancellation.swift in Sources */,
-				E2C47DA91B1B5A60000B4B5B /* Alamofire+Cancellation.swift in Sources */,
 				E232229D1BA2EB2B00446670 /* CancellationToken.swift in Sources */,
-				E2C47DAA1B1B5A60000B4B5B /* tiny-networking.swift in Sources */,
+				E25251F11D496ABA00AC99B8 /* Alamofire+Cancellation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +392,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -415,7 +462,7 @@
 		};
 		E2C47D9F1B1B58FE000B4B5B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D822A8A80E55E14EF1D7C536 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 9378B98BC348FFC877D93FB7 /* Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -426,12 +473,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		E2C47DA01B1B58FE000B4B5B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26531CD6E030F768889E8A6B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 94036B7CEB500885108EA055 /* Pods-CancellationTokenExtensionPods-CancellationTokenExtensions.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -442,17 +490,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		E2C47DA21B1B58FE000B4B5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C2F07465346B595189C57EA /* Pods-CancellationTokenExtensionsTests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -460,20 +508,21 @@
 				INFOPLIST_FILE = CancellationTokenExtensionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		E2C47DA31B1B58FE000B4B5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 787BE353EA96489CF56573CB /* Pods-CancellationTokenExtensionsTests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CancellationTokenExtensionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

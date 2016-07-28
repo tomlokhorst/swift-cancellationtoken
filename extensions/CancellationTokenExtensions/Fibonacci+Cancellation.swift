@@ -9,7 +9,7 @@
 import Foundation
 
 // A terribly inefficient way of calculating a fibonacci number
-public func fib(n: Int, _ cancellationToken: CancellationToken) -> Int {
+public func fib(_ n: Int, _ cancellationToken: CancellationToken) -> Int {
 
   if cancellationToken.isCancellationRequested {
     // If cancellation was requested, we exit prematurely with an invalid result
