@@ -56,6 +56,7 @@ public struct CancellationToken {
     switch state {
     case let .pending(source):
       source.register(handler)
+
     default:
       handler()
     }
@@ -67,6 +68,7 @@ A `CancellationTokenSource` is used to create a `CancellationToken`.
 The created token can be set to "cancellation requested" using the `cancel()` method.
 */
 public class CancellationTokenSource {
+
   public var token: CancellationToken {
     if isCancellationRequested {
       return CancellationToken(state: .cancelled)
@@ -109,15 +111,17 @@ public class CancellationTokenSource {
     cancel(when: .now() + seconds)
   }
 
-  @discardableResult internal func tryCancel() -> Bool {
-    if !isCancellationRequested {
-      isCancellationRequested = true
-      executeHandlers()
+  @discardableResult
+  internal func tryCancel() -> Bool {
 
-      return true
+    if isCancellationRequested {
+      return false
     }
 
-    return false
+    isCancellationRequested = true
+    executeHandlers()
+
+    return true
   }
 
   private func executeHandlers() {

@@ -19,7 +19,7 @@ Usage
 Example
 -------
 
-Here's an example based on the [binding](https://github.com/tomlokhorst/swift-cancellationtoken/blob/develop/extensions/CancellationTokenExtensions/Alamofire%0BCancellation.swift) to Alamofire:
+Here's an example based on the [binding](https://github.com/tomlokhorst/swift-cancellationtoken/blob/develop/extensions/CancellationTokenExtensions/Alamofire%2BCancellation.swift) to Alamofire:
 
 ```swift
 // Create a CancellationTokenSource and a CancellationToken
