@@ -8,9 +8,19 @@
 
 import Alamofire
 
-extension Manager {
-  public func request(method: Alamofire.Method, URLString: URLStringConvertible, parameters: [String: AnyObject]? = nil, encoding: ParameterEncoding = .URL, cancellationToken: CancellationToken = NotCancellableToken) -> Request {
-    let req = self.request(method, URLString, parameters: parameters, encoding: encoding)
+extension SessionManager {
+
+  @discardableResult
+  open func request(
+    _ url: URLConvertible,
+    method: HTTPMethod = .get,
+    parameters: Parameters? = nil,
+    encoding: ParameterEncoding = URLEncoding.default,
+    headers: HTTPHeaders? = nil,
+    cancellationToken: CancellationToken = NotCancellableToken)
+    -> DataRequest
+  {
+    let req = self.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
 
     cancellationToken.register { [weak req] in
       req?.cancel()
@@ -20,8 +30,12 @@ extension Manager {
     return req
   }
 
-  public func request(URLRequest: URLRequestConvertible, cancellationToken: CancellationToken = NotCancellableToken) -> Request {
-    let req = self.request(URLRequest)
+  open func request(
+    _ urlRequest: URLRequestConvertible,
+    cancellationToken: CancellationToken = NotCancellableToken)
+    -> DataRequest
+  {
+    let req = self.request(urlRequest)
 
     cancellationToken.register { [weak req] in
       req?.cancel()
@@ -32,10 +46,31 @@ extension Manager {
   }
 }
 
-public func request(method: Alamofire.Method, URLString: URLStringConvertible, parameters: [String: AnyObject]? = nil, encoding: ParameterEncoding = .URL, cancellationToken: CancellationToken = NotCancellableToken) -> Request {
-  return Manager.sharedInstance.request(method, URLString: URLString, parameters: parameters, encoding: encoding, cancellationToken: cancellationToken)
+@discardableResult
+public func request(
+  _ url: URLConvertible,
+  method: HTTPMethod = .get,
+  parameters: Parameters? = nil,
+  encoding: ParameterEncoding = URLEncoding.default,
+  headers: HTTPHeaders? = nil,
+  cancellationToken: CancellationToken = NotCancellableToken)
+  -> DataRequest
+{
+  return SessionManager.default.request(
+    url,
+    method: method,
+    parameters: parameters,
+    encoding: encoding,
+    headers: headers,
+    cancellationToken: cancellationToken
+  )
 }
 
-public func request(URLRequest: URLRequestConvertible, cancellationToken: CancellationToken = NotCancellableToken) -> Request {
-  return Manager.sharedInstance.request(URLRequest.URLRequest, cancellationToken: cancellationToken)
+@discardableResult
+public func request(
+  _ urlRequest: URLRequestConvertible,
+  cancellationToken: CancellationToken = NotCancellableToken)
+  -> DataRequest
+{
+  return SessionManager.default.request(urlRequest, cancellationToken: cancellationToken)
 }

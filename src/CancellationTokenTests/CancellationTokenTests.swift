@@ -29,7 +29,7 @@ class CancellationTokenTests: XCTestCase {
   }
 
   func testDelayedCancel() {
-    let expectation = expectationWithDescription("Cancel not registered")
+    let expectation = self.expectation(description: "Cancel not registered")
 
     let source = CancellationTokenSource()
     let token = source.token
@@ -44,16 +44,16 @@ class CancellationTokenTests: XCTestCase {
       }
     }
 
-    waitForExpectationsWithTimeout(0.03, handler: nil)
+    waitForExpectations(timeout: 0.03, handler: nil)
   }
 
   func testCancelWithDelay() {
-    let expectation = expectationWithDescription("Cancel not registered")
+    let expectation = self.expectation(description: "Cancel not registered")
 
     let source = CancellationTokenSource()
     let token = source.token
 
-    source.cancel(0.01)
+    source.cancel(seconds: 0.01)
     XCTAssertFalse(token.isCancellationRequested, "Cancel should still be false")
 
     delay(0.1) {
@@ -62,11 +62,11 @@ class CancellationTokenTests: XCTestCase {
       }
     }
 
-    waitForExpectationsWithTimeout(0.2, handler: nil)
+    waitForExpectations(timeout: 0.2, handler: nil)
   }
 
   func testRegisterBefore() {
-    let expectation = expectationWithDescription("Cancel not registered")
+    let expectation = self.expectation(description: "Cancel not registered")
 
     let source = CancellationTokenSource()
     let token = source.token
@@ -75,13 +75,13 @@ class CancellationTokenTests: XCTestCase {
       expectation.fulfill()
     }
 
-    source.cancel(0.01)
+    source.cancel(seconds: 0.01)
 
-    waitForExpectationsWithTimeout(0.2, handler: nil)
+    waitForExpectations(timeout: 0.2, handler: nil)
   }
 
   func testRegisterAfter() {
-    let expectation = expectationWithDescription("Cancel not registered")
+    let expectation = self.expectation(description: "Cancel not registered")
 
     let source = CancellationTokenSource()
     let token = source.token
@@ -92,13 +92,12 @@ class CancellationTokenTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.01, handler: nil)
+    waitForExpectations(timeout: 0.01, handler: nil)
   }
 }
 
-func delay(seconds: NSTimeInterval, block: dispatch_block_t!) {
-  let when = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
-  let queue = dispatch_get_main_queue()
+func delay(_ seconds: TimeInterval, execute: @escaping () -> Void) {
+  let when: DispatchTime = .now() + .milliseconds(Int(seconds * 1000))
 
-  dispatch_after(when, queue, block)
+  DispatchQueue.main.asyncAfter(deadline: when, execute: execute)
 }

@@ -1,11 +1,9 @@
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
-pod 'Alamofire', '~> 2.0'
+pod 'Alamofire', '~> 4.0'
 # pod 'CancellationToken', :path => '../' # All CancellationToken source files are manually included in project
 
-target :CancellationTokenExtensionsTests do
-  # This Pods library links with a target in another project.
-  xcodeproj 'CancellationTokenExtensions'
-end
+target 'CancellationTokenExtensions'
+target 'CancellationTokenExtensionsTests'
+

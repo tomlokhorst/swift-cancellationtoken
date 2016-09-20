@@ -19,7 +19,7 @@ Usage
 Example
 -------
 
-Here's an example based on the [binding](https://github.com/tomlokhorst/swift-cancellationtoken/blob/master/examples/CancellationTokenExamples/Alamofire%2BCancellation.swift) to Alamofire:
+Here's an example based on the [binding](https://github.com/tomlokhorst/swift-cancellationtoken/blob/develop/extensions/CancellationTokenExtensions/Alamofire%2BCancellation.swift) to Alamofire:
 
 ```swift
 // Create a CancellationTokenSource and a CancellationToken
@@ -27,9 +27,9 @@ let source = CancellationTokenSource()
 let token = source.token
 
 // Start the asynchroneous downloading of a large file, passing in the cancellation token
-alamofireRequest(.GET, largeFileUrl, cancellationToken: token)
+request(.GET, largeFileUrl, cancellationToken: token)
   .response { (request, response, data, error) in
-    if let error = error as? NSError {
+    if let error = error {
       if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
         print("The downloading was cancelled")
       }
@@ -37,7 +37,7 @@ alamofireRequest(.GET, largeFileUrl, cancellationToken: token)
     else {
       print("The response is available: \(response)")
     }
-}
+  }
 
 // Some time later, request cancellation
 source.cancel()
@@ -52,11 +52,7 @@ Installation
 CancellationToken is available for both iOS and OS X. Using [CocoaPods](http://cocoapods.org), CancellationToken can be integrated into your Xcode project by specifying it in your `Podfile`:
 
 ```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-use_frameworks!
-
-pod 'CancellationToken', '~> 0.2.0'
+pod 'CancellationToken'
 ```
 
 Then, run the following command:
