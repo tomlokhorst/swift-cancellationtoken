@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CancellationToken"
-  s.version      = "0.3.0.beta"
+  s.version      = "0.3.0"
   s.license      = "MIT"
 
   s.summary      = "CancellationToken in Swift"
@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.social_media_url  = "https://twitter.com/tomlokhorst"
   s.homepage          = "https://github.com/tomlokhorst/swift-cancellationtoken"
 
-  s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.10'
+  s.ios.deployment_target = '9.0'
+  s.osx.deployment_target = '10.11'
 
   s.source          = { :git => "https://github.com/tomlokhorst/swift-cancellationtoken.git", :tag => s.version }
   s.requires_arc    = true
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.subspec "Alamofire" do |ss|
     ss.source_files = "extensions/CancellationTokenExtensions/Alamofire+Cancellation.swift"
     ss.dependency "CancellationToken/Core"
-    ss.dependency "Alamofire", "~> 3.0"
+    ss.dependency "Alamofire", "~> 4.0"
   end
 
 end

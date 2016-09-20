@@ -27,9 +27,9 @@ let source = CancellationTokenSource()
 let token = source.token
 
 // Start the asynchroneous downloading of a large file, passing in the cancellation token
-request(.GET, largeFileUrl, cancellationToken: token)
-  .response { (request, response, data, error) in
-    if let error = error {
+request(largeFileUrl, cancellationToken: token)
+  .response { response in
+    if let error = response.error as? NSError {
       if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
         print("The downloading was cancelled")
       }
@@ -72,6 +72,7 @@ CancellationToken is just a single file, so instead of using CocoaPods, you coul
 Releases
 --------
 
+ - **0.3.0** - 2016-09-20 - Swift 3 support
  - **0.2.0** - 2015-09-11 - Swift 2 support
  - 0.1.1 - 2015-06-24 - No more circular references, fixes memory leak
  - **0.1.0** - 2015-03-31 - Initial public release
