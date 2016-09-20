@@ -51,7 +51,7 @@ public struct CancellationToken {
     self.state = state
   }
 
-  public func register(_ handler: (Void) -> Void) {
+  public func register(_ handler: @escaping (Void) -> Void) {
 
     switch state {
     case let .pending(source):
@@ -84,7 +84,7 @@ public class CancellationTokenSource {
   public init() {
   }
 
-  public func register(_ handler: (Void) -> Void) {
+  public func register(_ handler: @escaping (Void) -> Void) {
     if isCancellationRequested {
       handler()
     }
@@ -99,9 +99,9 @@ public class CancellationTokenSource {
 
   public func cancel(when: DispatchTime) {
     // On a background queue
-    let queue = DispatchQueue.global(attributes: .qosUserInitiated)
+    let queue = DispatchQueue.global(qos: .userInitiated)
 
-    queue.after(when: when) { [weak self] in
+    queue.asyncAfter(deadline: when) { [weak self] in
       self?.tryCancel()
       return
     }

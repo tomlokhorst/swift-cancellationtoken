@@ -21,9 +21,9 @@ class CancellationTokenExamplesTests: XCTestCase {
 
 
     // Start the asynchroneous downloading of a large file, passing in the cancellation token
-    request(.GET, largeFileUrl, cancellationToken: token)
-      .response { (request, response, data, error) in
-        if let error = error {
+    request(largeFileUrl, cancellationToken: token)
+      .response { response in
+        if let error = response.error as? NSError {
           if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
             expectation.fulfill()
           }

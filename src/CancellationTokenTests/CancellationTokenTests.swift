@@ -96,8 +96,8 @@ class CancellationTokenTests: XCTestCase {
   }
 }
 
-func delay(_ seconds: TimeInterval, execute: () -> Void) {
+func delay(_ seconds: TimeInterval, execute: @escaping () -> Void) {
   let when: DispatchTime = .now() + .milliseconds(Int(seconds * 1000))
 
-  DispatchQueue.main.after(when: when, execute: execute)
+  DispatchQueue.main.asyncAfter(deadline: when, execute: execute)
 }
