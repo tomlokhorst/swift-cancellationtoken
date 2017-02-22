@@ -84,6 +84,10 @@ public class CancellationTokenSource {
   public init() {
   }
 
+  deinit {
+    tryCancel()
+  }
+
   public func register(_ handler: @escaping (Void) -> Void) {
     if isCancellationRequested {
       handler()
