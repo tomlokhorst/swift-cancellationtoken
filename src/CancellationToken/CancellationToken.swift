@@ -51,7 +51,7 @@ public struct CancellationToken {
     self.state = state
   }
 
-  public func register(_ handler: @escaping (Void) -> Void) {
+  public func register(_ handler: @escaping () -> Void) {
 
     switch state {
     case let .pending(source):
@@ -78,7 +78,7 @@ public class CancellationTokenSource {
     }
   }
 
-  private var handlers: [(Void) -> Void] = []
+  private var handlers: [() -> Void] = []
   internal var isCancellationRequested = false
 
   public init() {
@@ -88,7 +88,7 @@ public class CancellationTokenSource {
     tryCancel()
   }
 
-  public func register(_ handler: @escaping (Void) -> Void) {
+  public func register(_ handler: @escaping () -> Void) {
     if isCancellationRequested {
       handler()
     }
