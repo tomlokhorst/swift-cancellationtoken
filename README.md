@@ -72,6 +72,7 @@ CancellationToken is just a single file, so instead of using CocoaPods, you coul
 Releases
 --------
 
+ - 1.1.0 - 2017-06-18 - Swift 3.2 support
  - **1.0.0** - 2017-02-23 - Cancel on `denit` of cancellation source
  - **0.3.0** - 2016-09-20 - Swift 3 support
  - **0.2.0** - 2015-09-11 - Swift 2 support
