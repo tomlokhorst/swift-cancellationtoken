@@ -22,31 +22,18 @@ To create a cancellation token, use `CancellationTokenSource`.
 */
 public struct CancellationToken {
 
-  private var state: State
+  private let source: CancellationTokenSource
 
-  public var isCancellationRequested: Bool {
-    switch state {
-    case .cancelled:
-      return true
-
-    case let .pending(source):
-      return source.isCancellationRequested
-    }
+  internal init(source: CancellationTokenSource) {
+    self.source = source
   }
 
-  internal init(state: State) {
-    self.state = state
+  public var isCancellationRequested: Bool {
+    return source.isCancellationRequested
   }
 
   public func register(_ handler: @escaping () -> Void) {
-
-    switch state {
-    case .cancelled:
-      handler()
-
-    case let .pending(source):
-      source.register(handler)
-    }
+    source.register(handler)
   }
 }
 
@@ -57,12 +44,7 @@ The created token can be set to "cancellation requested" using the `cancel()` me
 public class CancellationTokenSource {
 
   public var token: CancellationToken {
-    if isCancellationRequested {
-      return CancellationToken(state: .cancelled)
-    }
-    else {
-      return CancellationToken(state: .pending(self))
-    }
+    return CancellationToken(source: self)
   }
 
   private var handlers: [() -> Void] = []
@@ -94,7 +76,6 @@ public class CancellationTokenSource {
 
     queue.asyncAfter(deadline: when) { [weak self] in
       self?.tryCancel()
-      return
     }
   }
 
