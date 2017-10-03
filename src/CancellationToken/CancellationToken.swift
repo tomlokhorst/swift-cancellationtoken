@@ -8,19 +8,9 @@
 
 import Foundation
 
-/**
-A token that will never be cancelled
-*/
-public let NotCancellableToken = CancellationToken(state: .notCancelled)
-
-/**
-A already cancelled token
-*/
-public let CancelledToken = CancellationToken(state: .cancelled)
 
 enum State {
   case cancelled
-  case notCancelled
   case pending(CancellationTokenSource)
 }
 
@@ -39,9 +29,6 @@ public struct CancellationToken {
     case .cancelled:
       return true
 
-    case .notCancelled:
-      return false
-
     case let .pending(source):
       return source.isCancellationRequested
     }
@@ -54,11 +41,11 @@ public struct CancellationToken {
   public func register(_ handler: @escaping () -> Void) {
 
     switch state {
+    case .cancelled:
+      handler()
+
     case let .pending(source):
       source.register(handler)
-
-    default:
-      handler()
     }
   }
 }

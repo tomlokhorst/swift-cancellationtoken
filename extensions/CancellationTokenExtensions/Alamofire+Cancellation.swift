@@ -17,30 +17,24 @@ extension SessionManager {
     parameters: Parameters? = nil,
     encoding: ParameterEncoding = URLEncoding.default,
     headers: HTTPHeaders? = nil,
-    cancellationToken: CancellationToken = NotCancellableToken)
+    cancellationToken: CancellationToken?)
     -> DataRequest
   {
     let req = self.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
 
-    cancellationToken.register { [weak req] in
-      req?.cancel()
-      return
-    }
+    cancellationToken?.register(req.cancel)
 
     return req
   }
 
   open func request(
     _ urlRequest: URLRequestConvertible,
-    cancellationToken: CancellationToken = NotCancellableToken)
+    cancellationToken: CancellationToken?)
     -> DataRequest
   {
     let req = self.request(urlRequest)
 
-    cancellationToken.register { [weak req] in
-      req?.cancel()
-      return
-    }
+    cancellationToken?.register(req.cancel)
 
     return req
   }
@@ -53,7 +47,7 @@ public func request(
   parameters: Parameters? = nil,
   encoding: ParameterEncoding = URLEncoding.default,
   headers: HTTPHeaders? = nil,
-  cancellationToken: CancellationToken = NotCancellableToken)
+  cancellationToken: CancellationToken?)
   -> DataRequest
 {
   return SessionManager.default.request(
@@ -69,7 +63,7 @@ public func request(
 @discardableResult
 public func request(
   _ urlRequest: URLRequestConvertible,
-  cancellationToken: CancellationToken = NotCancellableToken)
+  cancellationToken: CancellationToken?)
   -> DataRequest
 {
   return SessionManager.default.request(urlRequest, cancellationToken: cancellationToken)
