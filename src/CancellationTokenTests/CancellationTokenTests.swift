@@ -53,7 +53,7 @@ class CancellationTokenTests: XCTestCase {
     let source = CancellationTokenSource()
     let token = source.token
 
-    source.cancel(seconds: 0.01)
+    source.cancelAfter(timeInterval: 0.01)
     XCTAssertFalse(token.isCancellationRequested, "Cancel should still be false")
 
     delay(0.1) {
@@ -75,7 +75,7 @@ class CancellationTokenTests: XCTestCase {
       expectation.fulfill()
     }
 
-    source.cancel(seconds: 0.01)
+    source.cancelAfter(timeInterval: 0.01)
 
     waitForExpectations(timeout: 0.2, handler: nil)
   }
