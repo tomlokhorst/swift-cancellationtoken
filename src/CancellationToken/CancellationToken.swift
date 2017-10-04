@@ -70,17 +70,17 @@ public class CancellationTokenSource {
     tryCancel()
   }
 
-  public func cancel(when: DispatchTime) {
+  public func cancelAfter(deadline dispatchTime: DispatchTime) {
     // On a background queue
     let queue = DispatchQueue.global(qos: .userInitiated)
 
-    queue.asyncAfter(deadline: when) { [weak self] in
+    queue.asyncAfter(deadline: dispatchTime) { [weak self] in
       self?.tryCancel()
     }
   }
 
-  public func cancel(seconds: TimeInterval) {
-    cancel(when: .now() + seconds)
+  public func cancelAfter(timeInterval: TimeInterval) {
+    cancelAfter(deadline: .now() + timeInterval)
   }
 
   @discardableResult
