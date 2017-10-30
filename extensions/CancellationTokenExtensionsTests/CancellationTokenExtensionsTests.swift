@@ -32,7 +32,7 @@ class CancellationTokenExamplesTests: XCTestCase {
       }
 
     // Request cancellation of the token after 0.1 second
-    source.cancel(seconds: 0.1)
+    source.cancelAfter(timeInterval: 0.1)
 
     // Wait for 1 second for the download to be cancelled
     waitForExpectations(timeout: 1.0, handler: nil)
@@ -43,7 +43,7 @@ class CancellationTokenExamplesTests: XCTestCase {
     let token = source.token
 
     // Request cancellation of the token after 0.5 second
-    source.cancel(seconds: 0.5)
+    source.cancelAfter(timeInterval: 0.5)
 
     // Start calculation of the 36th fibonacci number on main queue
     let result = fib(36, token)
