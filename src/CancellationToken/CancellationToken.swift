@@ -43,12 +43,14 @@ The created token can be set to "cancellation requested" using the `cancel()` me
 */
 public class CancellationTokenSource {
 
+  private let lock = NSLock()
+
+  private var handlers: [() -> Void] = []
+  fileprivate var isCancellationRequested = false
+
   public var token: CancellationToken {
     return CancellationToken(source: self)
   }
-
-  private var handlers: [() -> Void] = []
-  internal var isCancellationRequested = false
 
   public init() {
   }
@@ -58,6 +60,8 @@ public class CancellationTokenSource {
   }
 
   public func register(_ handler: @escaping () -> Void) {
+    lock.lock(); defer { lock.unlock() }
+
     if isCancellationRequested {
       handler()
     }
@@ -85,18 +89,14 @@ public class CancellationTokenSource {
 
   @discardableResult
   internal func tryCancel() -> Bool {
+    lock.lock(); defer { lock.unlock() }
 
     if isCancellationRequested {
       return false
     }
 
     isCancellationRequested = true
-    executeHandlers()
 
-    return true
-  }
-
-  private func executeHandlers() {
     // Call all previously scheduled handlers
     for handler in handlers {
       handler()
@@ -104,5 +104,7 @@ public class CancellationTokenSource {
 
     // Cleanup
     handlers = []
+
+    return true
   }
 }
