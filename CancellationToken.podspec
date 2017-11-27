@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CancellationToken"
-  s.version      = "2.0.1"
+  s.version      = "2.1.0"
   s.license      = "MIT"
 
   s.summary      = "CancellationToken in Swift"
