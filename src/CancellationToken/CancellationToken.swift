@@ -43,26 +43,26 @@ The created token can be set to "cancellation requested" using the `cancel()` me
 */
 public class CancellationTokenSource {
 
-  public var token: CancellationToken {
-    return CancellationToken(source: self)
+  private let internalState: InternalState
+  fileprivate var isCancellationRequested: Bool {
+    return internalState.readCancelled()
   }
 
-  private var handlers: [() -> Void] = []
-  internal var isCancellationRequested = false
-
   public init() {
+    internalState = InternalState()
   }
 
   deinit {
     tryCancel()
   }
 
+  public var token: CancellationToken {
+    return CancellationToken(source: self)
+  }
+
   public func register(_ handler: @escaping () -> Void) {
-    if isCancellationRequested {
+    if let handler = internalState.addHandler(handler) {
       handler()
-    }
-    else {
-      handlers.append(handler)
     }
   }
 
@@ -83,26 +83,54 @@ public class CancellationTokenSource {
     cancelAfter(deadline: .now() + timeInterval)
   }
 
-  @discardableResult
-  internal func tryCancel() -> Bool {
+  internal func tryCancel() {
+    let handlers = internalState.tryCancel()
 
-    if isCancellationRequested {
-      return false
-    }
-
-    isCancellationRequested = true
-    executeHandlers()
-
-    return true
-  }
-
-  private func executeHandlers() {
     // Call all previously scheduled handlers
     for handler in handlers {
       handler()
     }
+  }
+}
 
-    // Cleanup
-    handlers = []
+extension CancellationTokenSource {
+  typealias Handler = () -> Void
+
+  fileprivate class InternalState {
+    private let lock = NSLock()
+    private var cancelled = false
+    private var handlers: [() -> Void] = []
+
+    func readCancelled() -> Bool {
+      lock.lock(); defer { lock.unlock() }
+
+      return cancelled
+    }
+
+    func tryCancel() -> [Handler] {
+      lock.lock(); defer { lock.unlock() }
+
+      if cancelled {
+        return []
+      }
+
+      let handlersToExecute = handlers
+
+      cancelled = true
+      handlers = []
+
+      return handlersToExecute
+    }
+
+    func addHandler(_ handler: @escaping Handler) -> Handler? {
+      lock.lock(); defer { lock.unlock() }
+
+      if !cancelled {
+        handlers.append(handler)
+        return nil
+      }
+
+      return handler
+    }
   }
 }

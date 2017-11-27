@@ -94,6 +94,23 @@ class CancellationTokenTests: XCTestCase {
 
     waitForExpectations(timeout: 0.01, handler: nil)
   }
+
+  func testRegisterDuring() {
+    let expectation = self.expectation(description: "Cancel not registered")
+
+    let source = CancellationTokenSource()
+    let token = source.token
+
+    token.register {
+      token.register {
+        expectation.fulfill()
+      }
+    }
+
+    source.cancel()
+
+    waitForExpectations(timeout: 0.01, handler: nil)
+  }
 }
 
 func delay(_ seconds: TimeInterval, execute: @escaping () -> Void) {
