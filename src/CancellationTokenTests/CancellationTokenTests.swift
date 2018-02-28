@@ -111,6 +111,21 @@ class CancellationTokenTests: XCTestCase {
 
     waitForExpectations(timeout: 0.01, handler: nil)
   }
+
+  func testDeinitSource() {
+    var source: CancellationTokenSource? = CancellationTokenSource()
+    let token = source!.token
+
+    var didCancel = false
+
+    token.register {
+      didCancel = true
+    }
+
+    source = nil
+
+    XCTAssertTrue(didCancel)
+  }
 }
 
 func delay(_ seconds: TimeInterval, execute: @escaping () -> Void) {
