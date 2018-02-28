@@ -22,17 +22,21 @@ To create a cancellation token, use `CancellationTokenSource`.
 */
 public struct CancellationToken {
 
-  private let source: CancellationTokenSource
+  private weak var source: CancellationTokenSource?
 
   internal init(source: CancellationTokenSource) {
     self.source = source
   }
 
   public var isCancellationRequested: Bool {
-    return source.isCancellationRequested
+    return source?.isCancellationRequested ?? true
   }
 
   public func register(_ handler: @escaping () -> Void) {
+    guard let source = source else {
+      return handler()
+    }
+
     source.register(handler)
   }
 }
