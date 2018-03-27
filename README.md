@@ -72,6 +72,7 @@ CancellationToken is just a single file, so instead of using CocoaPods, you coul
 Releases
 --------
 
+ - **3.0.0** - 2018-03-27 - Cancellation now occurs automatically, when the source is released
  - 2.1.0 - 2017-11-27 - Lock internal state, for multithreading
  - **2.0.0** - 2017-10-30 - Swift 4 support, API cleanup
  - 1.1.0 - 2017-06-18 - Swift 3.2 support
