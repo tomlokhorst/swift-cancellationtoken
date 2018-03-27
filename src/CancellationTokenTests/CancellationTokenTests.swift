@@ -34,11 +34,11 @@ class CancellationTokenTests: XCTestCase {
     let source = CancellationTokenSource()
     let token = source.token
 
-    delay(0.01) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
       source.cancel()
     }
 
-    delay(0.02) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
       if token.isCancellationRequested {
         expectation.fulfill()
       }
@@ -56,13 +56,13 @@ class CancellationTokenTests: XCTestCase {
     source.cancelAfter(timeInterval: 0.01)
     XCTAssertFalse(token.isCancellationRequested, "Cancel should still be false")
 
-    delay(0.1) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
       if token.isCancellationRequested {
         expectation.fulfill()
       }
     }
 
-    waitForExpectations(timeout: 0.2, handler: nil)
+    waitForExpectations(timeout: 0.02, handler: nil)
   }
 
   func testRegisterBefore() {
@@ -81,40 +81,49 @@ class CancellationTokenTests: XCTestCase {
   }
 
   func testRegisterAfter() {
-    let expectation = self.expectation(description: "Cancel not registered")
-
     let source = CancellationTokenSource()
     let token = source.token
+
+    var didCancel = false
 
     source.cancel()
 
     token.register {
-      expectation.fulfill()
+      didCancel = true
     }
 
-    waitForExpectations(timeout: 0.01, handler: nil)
+    XCTAssertTrue(didCancel)
   }
 
   func testRegisterDuring() {
-    let expectation = self.expectation(description: "Cancel not registered")
-
     let source = CancellationTokenSource()
     let token = source.token
 
+    var didCancel = false
+
     token.register {
       token.register {
-        expectation.fulfill()
+        didCancel = true
       }
     }
 
     source.cancel()
 
-    waitForExpectations(timeout: 0.01, handler: nil)
+    XCTAssertTrue(didCancel)
   }
-}
 
-func delay(_ seconds: TimeInterval, execute: @escaping () -> Void) {
-  let when: DispatchTime = .now() + .milliseconds(Int(seconds * 1000))
+  func testDeinitSource() {
+    var source: CancellationTokenSource? = CancellationTokenSource()
+    let token = source!.token
 
-  DispatchQueue.main.asyncAfter(deadline: when, execute: execute)
+    var didCancel = false
+
+    token.register {
+      didCancel = true
+    }
+
+    source = nil
+
+    XCTAssertTrue(didCancel)
+  }
 }
