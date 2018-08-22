@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "Core"
 
   s.subspec "Core" do |ss|
-    ss.source_files  = "src/CancellationToken"
+    ss.source_files  = "Sources/CancellationToken"
   end
 
   s.subspec "Alamofire" do |ss|
