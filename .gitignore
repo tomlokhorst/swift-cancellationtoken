@@ -23,3 +23,8 @@ DerivedData
 # CocoaPods
 #
 Pods/
+
+# SPM
+.build
+CancellationToken.xcodeproj
+
