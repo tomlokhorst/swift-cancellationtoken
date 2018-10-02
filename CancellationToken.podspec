@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.source          = { :git => "https://github.com/tomlokhorst/swift-cancellationtoken.git", :tag => s.version }
   s.requires_arc    = true
   s.default_subspec = "Core"
+  s.swift_version   = '4.2'
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Sources/CancellationToken"
