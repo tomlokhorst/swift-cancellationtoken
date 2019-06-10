@@ -1,10 +1,16 @@
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
   name: "CancellationToken",
-  targets: [
-    Target(name: "CancellationToken"),
+  products: [
+    .library(name: "CancellationToken", targets: ["CancellationToken"]),
   ],
-  dependencies: []
+  dependencies: [
+  ],
+  targets: [
+    .target(name: "CancellationToken"),
+    .testTarget(name: "CancellationTokenTests", dependencies: ["CancellationToken"]),
+  ]
 )
 
