@@ -1,9 +1,0 @@
-platform :ios, '9.0'
-use_frameworks!
-
-pod 'Alamofire', '~> 4.0'
-# pod 'CancellationToken', :path => '../' # All CancellationToken source files are manually included in project
-
-target 'CancellationTokenExtensions'
-target 'CancellationTokenExtensionsTests'
-
