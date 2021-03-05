@@ -84,7 +84,7 @@ CancellationToken is just a single file, so instead of using SPM or CocoaPods, y
 Releases
 --------
 
- - 4.0.0 - 2021-03-05 - Update Package.swift to version 5, remove extensions
+ - **4.0.0** - 2021-03-05 - Update Package.swift to version 5, remove extensions
  - 3.2.0 - 2019-06-10 - Swift 5.1 in podspec
  - 3.1.0 - 2018-09-13 - Update to Swift 4.2, add tvOS support
  - **3.0.0** - 2018-03-27 - Cancellation now occurs automatically, when the source is released
